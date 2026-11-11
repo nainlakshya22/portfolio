@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="46" y1="30" x2="856" y2="572" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E9EEDD"/>
+      <stop offset="1" stop-color="#CAD7BE"/>
+    </linearGradient>
+    <filter id="shadow" x="143" y="106" width="614" height="418" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="16"/>
+      <feGaussianBlur stdDeviation="13"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix values="0 0 0 0 0.18 0 0 0 0 0.23 0 0 0 0 0.16 0 0 0 0.16 0"/>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/>
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <clipPath id="card">
+      <rect x="174" y="132" width="552" height="358" rx="18"/>
+    </clipPath>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h900v600H0z"/>
+  <circle cx="756" cy="104" r="104" fill="#F7F8F1" fill-opacity=".4"/>
+  <circle cx="112" cy="510" r="155" fill="#B7C7A9" fill-opacity=".45"/>
+  <g filter="url(#shadow)">
+    <g clip-path="url(#card)">
+      <path fill="#fff" d="M174 132h552v358H174z"/>
+      <path fill="#F8F9F6" d="M174 132h552v66H174z"/>
+      <path stroke="#E9ECE5" d="M174 198.5h552"/>
+      <path fill="#fff" stroke="#E8EBE4" d="M197.5 152.5h31a11 11 0 0 1 11 11v3a11 11 0 0 1-11 11h-31a11 11 0 0 1-11-11v-3a11 11 0 0 1 11-11Z"/>
+      <path d="M201 172h8l10-17h-8l-10 17Z" fill="#34A853"/>
+      <path d="M211 155h8l11 17h-8l-11-17Z" fill="#4285F4"/>
+      <path d="M211 155h8l-5 8h-8l5-8Z" fill="#FBBC04"/>
+      <text x="250" y="170" fill="#252922" font-family="Arial,sans-serif" font-size="17" font-weight="700">Google Ads</text>
+      <text x="628" y="170" fill="#73796F" font-family="Arial,sans-serif" font-size="11">CAMPAIGN OVERVIEW</text>
+      <text x="204" y="234" fill="#252922" font-family="Arial,sans-serif" font-size="21" font-weight="700">Campaign performance</text>
+      <text x="204" y="254" fill="#7B8176" font-family="Arial,sans-serif" font-size="11">A clearer view of what’s working.</text>
+      <rect x="589" y="216" width="111" height="30" rx="15" fill="#F3F5F0"/>
+      <circle cx="605" cy="231" r="4" fill="#438A55"/>
+      <text x="616" y="235" fill="#555C51" font-family="Arial,sans-serif" font-size="10">Last 30 days</text>
+      <rect x="204" y="278" width="150" height="77" rx="10" fill="#F6F8F3"/>
+      <rect x="368" y="278" width="150" height="77" rx="10" fill="#F6F8F3"/>
+      <rect x="532" y="278" width="168" height="77" rx="10" fill="#F6F8F3"/>
+      <text x="220" y="300" fill="#73796F" font-family="Arial,sans-serif" font-size="10">CLICKS</text>
+      <text x="220" y="331" fill="#252922" font-family="Arial,sans-serif" font-size="23" font-weight="700">2,846</text>
+      <text x="287" y="330" fill="#39804B" font-family="Arial,sans-serif" font-size="10">↗ 18.6%</text>
+      <text x="384" y="300" fill="#73796F" font-family="Arial,sans-serif" font-size="10">CONVERSIONS</text>
+      <text x="384" y="331" fill="#252922" font-family="Arial,sans-serif" font-size="23" font-weight="700">184</text>
+      <text x="435" y="330" fill="#39804B" font-family="Arial,sans-serif" font-size="10">↗ 12.4%</text>
+      <text x="548" y="300" fill="#73796F" font-family="Arial,sans-serif" font-size="10">COST PER RESULT</text>
+      <text x="548" y="331" fill="#252922" font-family="Arial,sans-serif" font-size="23" font-weight="700">$4.28</text>
+      <text x="613" y="330" fill="#39804B" font-family="Arial,sans-serif" font-size="10">↘ 8.2%</text>
+      <path stroke="#E9ECE5" d="M204 382.5h496"/>
+      <text x="204" y="405" fill="#73796F" font-family="Arial,sans-serif" font-size="10">PERFORMANCE TREND</text>
+      <path stroke="#EEF0EA" d="M204 430.5h496M204 456.5h496M204 482.5h496"/>
+      <path d="m216 466 54-13 51 9 54-28 53 12 53-19 53 6 54-28 54 7 50-25" stroke="#4285F4" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      <path d="m216 472 54-5 51 2 54-14 53 9 53-9 53 3 54-16 54 3 50-15" stroke="#34A853" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <circle cx="638" cy="407" r="4" fill="#4285F4"/>
+      <text x="648" y="411" fill="#73796F" font-family="Arial,sans-serif" font-size="9">Clicks</text>
+      <circle cx="686" cy="407" r="4" fill="#34A853"/>
+    </g>
+  </g>
+  <rect x="174.5" y="132.5" width="551" height="357" rx="17.5" stroke="#fff" stroke-opacity=".8"/>
+</svg>
