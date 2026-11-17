@@ -1,6 +1,6 @@
 /**
  * LAKSHYA® — Keyboard-Accessible Command Palette
- * Trigger: Ctrl+K / Cmd+K or header button
+ * Trigger: Header menu button or hotkeys
  */
 
 import { showToast } from './projects.js';
@@ -89,7 +89,7 @@ export function initCommandPalette() {
     }
   }
 
-  // Keyboard shortcut Ctrl+K / Cmd+K & Global Hotkeys
+  // Keyboard shortcut & Global Hotkeys
   window.addEventListener('keydown', (e) => {
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
       e.preventDefault();
