@@ -1,0 +1,86 @@
+/* ==========================================================================
+   LAKSHYA® DESIGN SYSTEM TOKENS
+   Noir Editorial Studio — Light Luxury Cinematic Edition
+   ========================================================================== */
+
+:root {
+  /* Color Palette — 70% Cream / 20% Charcoal / 10% Champagne Gold */
+  --color-bg-primary: #F5F0E8;
+  --color-bg-secondary: #EAE2D6;
+  --color-bg-surface: #FFFFFF;
+  --color-bg-surface-translucent: rgba(245, 240, 232, 0.85);
+  --color-bg-dark: #171512;
+  --color-bg-dark-surface: #201D19;
+  
+  --color-text-primary: #171512;
+  --color-text-secondary: #575249;
+  --color-text-muted: #847C70;
+  --color-text-inverse: #F5F0E8;
+  
+  --color-accent-gold: #C5A16A;
+  --color-accent-gold-light: #DFC79E;
+  --color-accent-gold-dark: #8D6840;
+  --color-accent-gold-glow: rgba(197, 161, 106, 0.28);
+  
+  --color-border: #DCD2C3;
+  --color-border-subtle: #E8E0D2;
+  --color-border-dark: #332D25;
+  --color-border-focus: #C5A16A;
+  
+  --color-status-available: #4F8A38;
+  --color-status-busy: #D9822B;
+  
+  /* Typography */
+  --font-serif: "Cormorant Garamond", "Cinzel", "Georgia", "Times New Roman", serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Consolas, monospace;
+  
+  /* Scale & Spacing */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
+  
+  /* Shadows & Depth */
+  --shadow-subtle: 0 4px 20px rgba(23, 21, 18, 0.04);
+  --shadow-card: 0 10px 30px rgba(23, 21, 18, 0.06);
+  --shadow-hover: 0 20px 45px rgba(23, 21, 18, 0.12);
+  --shadow-gold: 0 8px 32px rgba(197, 161, 106, 0.25);
+  --shadow-modal: 0 25px 80px rgba(23, 21, 18, 0.28);
+  
+  /* Transitions */
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.2s var(--ease-cinematic);
+  --transition-normal: 0.35s var(--ease-cinematic);
+  --transition-slow: 0.65s var(--ease-cinematic);
+  
+  /* Layout */
+  --container-max-width: 1280px;
+  --header-height: 84px;
+}
+
+/* Dark Theme Overrides */
+[data-theme="dark"] {
+  --color-bg-primary: #12100E;
+  --color-bg-secondary: #1A1714;
+  --color-bg-surface: #1E1B17;
+  --color-bg-surface-translucent: rgba(18, 16, 14, 0.88);
+  --color-bg-dark: #0A0908;
+  --color-bg-dark-surface: #141210;
+  
+  --color-text-primary: #F5F0E8;
+  --color-text-secondary: #B8B0A2;
+  --color-text-muted: #7A7265;
+  --color-text-inverse: #171512;
+  
+  --color-border: #2D2720;
+  --color-border-subtle: #221D17;
+  --color-border-dark: #3F372D;
+  
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.55);
+  --shadow-hover: 0 20px 45px rgba(0, 0, 0, 0.7);
+  --shadow-gold: 0 8px 32px rgba(197, 161, 106, 0.35);
+  --shadow-modal: 0 25px 80px rgba(0, 0, 0, 0.85);
+}

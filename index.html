@@ -1,507 +1,814 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f4ef">
-  <meta name="description" content="The portfolio of Lakshay Nain — designer, developer, and creative problem-solver.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F5F0E8">
+  <meta name="description" content="LAKSHYA® — Independent Freelance Web Developer. Crafting luxury editorial digital experiences, high-converting business websites, and bespoke web platforms with intention.">
+  <meta name="keywords" content="Lakshya, Lakshya Nain, freelance web developer, luxury website design, frontend developer, portfolio, noir editorial studio">
+  <meta name="author" content="Lakshya Nain">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lakshya-portfolio.vercel.app/">
+  <meta property="og:title" content="LAKSHYA® — Independent Freelance Web Developer">
+  <meta property="og:description" content="Beyond Ordinary. Built with Intention. Digital experiences that help modern businesses stand out.">
+  <meta property="og:image" content="public/images/lakshya-portrait.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="LAKSHYA® — Independent Freelance Web Developer">
+  <meta property="twitter:description" content="Beyond Ordinary. Built with Intention. Luxury editorial web design and development.">
+  <meta property="twitter:image" content="public/images/lakshya-portrait.jpg">
+
+  <title>LAKSHYA® — Independent Freelance Web Developer · Noir Editorial Studio</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <title>Lakshay Nain — Portfolio</title>
-  <style>
-    :root {
-      color-scheme: light;
-      --paper: #f5f4ef;
-      --ink: #20211e;
-      --muted: #777970;
-      --line: #deded5;
-      --accent: #c8f169;
-      --serif: Georgia, "Times New Roman", serif;
-      --sans: "Segoe UI", Arial, sans-serif;
-    }
 
-    * { box-sizing: border-box; }
+  <!-- Typography: Web fonts with graceful system fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    html { scroll-behavior: smooth; }
+  <!-- Design System Stylesheets -->
+  <link rel="stylesheet" href="public/css/tokens.css">
+  <link rel="stylesheet" href="public/css/base.css">
+  <link rel="stylesheet" href="public/css/layout.css">
+  <link rel="stylesheet" href="public/css/components.css">
 
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--sans);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { color: inherit; }
-
-    .page-shell {
-      width: min(1120px, calc(100% - 64px));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      height: 88px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .wordmark {
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 750;
-      letter-spacing: -.04em;
-    }
-
-    .wordmark span { color: #85877c; font-weight: 400; }
-
-    .navigation {
-      display: flex;
-      align-items: center;
-      gap: 34px;
-      font-size: 12px;
-    }
-
-    .navigation a {
-      text-decoration: none;
-      transition: opacity .2s ease;
-    }
-
-    .navigation a:hover { opacity: .58; }
-
-    .navigation .contact-link {
-      padding: 12px 17px;
-      border: 1px solid var(--ink);
-      border-radius: 999px;
-    }
-
-    .hero {
-      min-height: 580px;
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      align-items: center;
-      gap: 40px;
-      padding: 80px 0 90px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 650;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #81a838;
-      content: "";
-    }
-
-    h1 {
-      max-width: 650px;
-      margin: 24px 0 22px;
-      font-size: clamp(56px, 8vw, 100px);
-      font-weight: 600;
-      letter-spacing: -.085em;
-      line-height: .96;
-    }
-
-    h1 em {
-      font-family: var(--serif);
-      font-weight: 400;
-      letter-spacing: -.075em;
-    }
-
-    .hero-copy {
-      max-width: 440px;
-      margin: 0;
-      color: #64665e;
-      font-size: 15px;
-      line-height: 1.8;
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      margin-top: 32px;
-      font-size: 12px;
-      font-weight: 650;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      gap: 18px;
-      padding: 15px 19px;
-      border-radius: 999px;
-      background: var(--ink);
-      color: white;
-      text-decoration: none;
-      transition: transform .2s ease, background .2s ease;
-    }
-
-    .button:hover { transform: translateY(-2px); background: #3a3b36; }
-    .text-link { text-decoration: none; }
-    .text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
-
-    .portrait-card {
-      position: relative;
-      width: min(100%, 370px);
-      aspect-ratio: .86;
-      justify-self: end;
-      overflow: hidden;
-      border-radius: 190px 190px 12px 12px;
-      background: #d6dac8;
-    }
-
-    .portrait-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 32%;
-    }
-
-    .portrait-card::before {
-      position: absolute;
-      inset: 12% 11% 0;
-      border: 1px solid rgb(255 255 255 / 28%);
-      border-bottom: 0;
-      border-radius: 190px 190px 0 0;
-      content: "";
-    }
-
-    .portrait-note {
-      position: absolute;
-      right: -9px;
-      bottom: 30px;
-      padding: 14px 17px;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: var(--paper);
-      font-family: var(--serif);
-      font-size: 14px;
-      font-style: italic;
-      transform: rotate(-4deg);
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 30px;
-    }
-
-    .section-label {
-      margin: 0 0 11px;
-      color: var(--muted);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      margin: 0;
-      font-size: clamp(32px, 4vw, 48px);
-      font-weight: 550;
-      letter-spacing: -.065em;
-    }
-
-    .section-heading > a {
-      margin-bottom: 6px;
-      font-size: 12px;
-      text-decoration: none;
-    }
-
-    .work { padding: 34px 0 100px; }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-    }
-
-    .project { min-width: 0; }
-
-    .project-art {
-      position: relative;
-      display: grid;
-      min-height: 300px;
-      place-items: center;
-      overflow: hidden;
-      border-radius: 8px;
-    }
-
-    .project-art--one { background: #d9e3ce; }
-    .project-art--two { background: #e8d8ca; }
-
-    .project-art--one::before {
-      display: none;
-    }
-
-    .project-art--one img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .project-art--two::before {
-      width: 65%;
-      height: 54%;
-      border: 1px solid rgb(72 49 37 / 45%);
-      border-radius: 50%;
-      background: repeating-linear-gradient(0deg, #ca8c6b 0 10px, #e3b496 10px 20px);
-      box-shadow: 0 18px 36px rgb(73 49 38 / 16%);
-      content: "";
-      transform: rotate(-12deg);
-    }
-
-    .project-index {
-      position: absolute;
-      top: 17px;
-      left: 18px;
-      color: rgb(32 33 30 / 62%);
-      font-size: 10px;
-      letter-spacing: .08em;
-    }
-
-    .project-info {
-      display: flex;
-      align-items: start;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 17px 1px 0;
-    }
-
-    .project-info h3 {
-      margin: 0 0 6px;
-      font-size: 16px;
-      font-weight: 650;
-      letter-spacing: -.035em;
-    }
-
-    .project-info p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .project-year {
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .about {
-      display: grid;
-      grid-template-columns: .7fr 1.3fr;
-      gap: 60px;
-      padding: 75px 0 80px;
-      border-top: 1px solid var(--line);
-    }
-
-    .about-copy {
-      max-width: 610px;
-      margin: 0;
-      color: #64665e;
-      font-size: 17px;
-      line-height: 1.85;
-    }
-
-    .about-copy strong { color: var(--ink); font-weight: 600; }
-
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 25px;
-    }
-
-    .skills span {
-      padding: 9px 13px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: #55574f;
-      font-size: 10px;
-    }
-
-    .contact {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 30px;
-      margin-bottom: 55px;
-      padding: 48px;
-      border-radius: 10px;
-      background: var(--accent);
-    }
-
-    .contact h2 { max-width: 500px; }
-
-    .contact .button {
-      flex: 0 0 auto;
-      background: var(--ink);
-    }
-
-    .site-footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 23px 0 28px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 10px;
-    }
-
-    .footer-links { display: flex; gap: 20px; }
-    .footer-links a { text-decoration: none; }
-    .footer-links a:hover { color: var(--ink); }
-
-    a:focus-visible {
-      outline: 3px solid #758f40;
-      outline-offset: 4px;
-    }
-
-    @media (max-width: 700px) {
-      .page-shell { width: min(100% - 38px, 520px); }
-      .site-header { height: 72px; }
-      .navigation { gap: 16px; }
-      .navigation a:nth-child(2) { display: none; }
-      .navigation .contact-link { padding: 10px 13px; }
-      .hero {
-        min-height: auto;
-        grid-template-columns: 1fr;
-        gap: 48px;
-        padding: 76px 0 76px;
-      }
-      h1 { font-size: clamp(58px, 15vw, 82px); }
-      .portrait-card { width: min(82%, 330px); justify-self: center; }
-      .work { padding: 10px 0 70px; }
-      .project-grid { grid-template-columns: 1fr; gap: 28px; }
-      .project-art { min-height: 270px; }
-      .about { grid-template-columns: 1fr; gap: 24px; padding: 55px 0; }
-      .about-copy { font-size: 15px; }
-      .contact { align-items: start; flex-direction: column; padding: 30px 25px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
-      }
-    }
-  </style>
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Lakshya Nain",
+    "alternateName": "LAKSHYA®",
+    "url": "https://lakshya-portfolio.vercel.app/",
+    "jobTitle": "Independent Freelance Web Developer",
+    "telephone": "+917849995988",
+    "email": "nainlakshay22@gmail.com",
+    "sameAs": [
+      "https://www.instagram.com/lakshya.web/"
+    ],
+    "knowsAbout": ["Web Development", "Responsive Design", "UI/UX Design", "HTML5", "CSS3", "JavaScript"]
+  }
+  </script>
 </head>
 <body>
-  <div class="page-shell">
-    <header class="site-header">
-      <a class="wordmark" href="#home">LAKSHAY NAIN<span>®</span></a>
-      <nav class="navigation" aria-label="Main navigation">
-        <a href="#work">Work</a>
+  <!-- Subtle Editorial Grain & Luxury Custom Cursor -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+  <div class="scroll-progress-bar" aria-hidden="true"></div>
+  <div class="custom-cursor" aria-hidden="true"></div>
+  <div class="custom-cursor-follower" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       SITE HEADER / STICKY NAVIGATION
+       ========================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="page-container nav-container">
+      <a href="#home" class="brand-wordmark" aria-label="LAKSHYA® Home">
+        <span class="brand-name">LAKSHYA<sup>®</sup></span>
+        <span class="brand-role">Independent Web Developer</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a class="contact-link" href="#contact">Let's talk <span aria-hidden="true">↗</span></a>
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#journal">Journal</a>
+        <a href="#contact">Contact</a>
       </nav>
-    </header>
 
-    <main>
-      <section class="hero" id="home">
-        <div>
-          <span class="eyebrow">Available for select projects</span>
-          <h1>Making ideas<br>feel <em>at home.</em></h1>
-          <p class="hero-copy">
-            Hi, I’m Lakshay Nain — a designer and developer creating thoughtful digital
-            experiences, memorable identities, and things that make people feel something.
-          </p>
-          <div class="hero-actions">
-            <a class="button" href="#work">Explore my work <span aria-hidden="true">↓</span></a>
-            <a class="text-link" href="#about">A little about me</a>
-          </div>
+      <!-- Header Utilities -->
+      <div class="header-actions">
+        <!-- Live Availability Pill -->
+        <div class="availability-pill" title="Current Freelance Availability Status">
+          <span class="dot"></span>
+          <span>Available for Projects</span>
         </div>
-        <div class="portrait-card">
-          <img src="portrait.png" alt="Lakshay Nain">
-          <span class="portrait-note">A work in progress, always.</span>
-        </div>
-      </section>
 
-      <section class="work" id="work">
-        <div class="section-heading">
-          <div>
-            <p class="section-label">A few things I’ve made</p>
-            <h2>Selected work</h2>
-          </div>
-          <a href="mailto:nainlakshay22@gmail.com">Have a project in mind? ↗</a>
-        </div>
-        <div class="project-grid">
-          <article class="project">
-            <div class="project-art project-art--one">
-              <img src="google-ads-project.svg" alt="Google Ads campaign dashboard with performance chart">
-              <span class="project-index">01 / PAID SEARCH</span>
-            </div>
-            <div class="project-info">
-              <div>
-                <h3>Google Ads Campaigns</h3>
-                <p>Campaign setup, management & optimization</p>
-              </div>
-              <span class="project-year">2025</span>
-            </div>
-          </article>
-          <article class="project">
-            <div class="project-art project-art--two" role="img" aria-label="Abstract warm-toned product artwork">
-              <span class="project-index">02 / PRODUCT & EXPERIENCE</span>
-            </div>
-            <div class="project-info">
-              <div>
-                <h3>Project Two</h3>
-                <p>Product design, development</p>
-              </div>
-              <span class="project-year">2024</span>
-            </div>
-          </article>
-        </div>
-      </section>
+        <!-- Command Palette Trigger -->
+        <button class="btn-cmd-palette" id="btn-open-cmd" aria-label="Open Command Menu (Ctrl+K)">
+          <span>Menu</span>
+          <kbd>Ctrl+K</kbd>
+        </button>
 
-      <section class="about" id="about">
-        <div>
-          <p class="section-label">The person behind the pixels</p>
-          <h2>A bit about me</h2>
-        </div>
-        <div>
-          <p class="about-copy">
-            I bring <strong>curiosity, craft, and a little bit of play</strong> to every
-            project. From the first sketch to the final details, I love making useful
-            things feel intuitive, human, and unmistakably themselves.
-          </p>
-          <div class="skills" aria-label="Areas of expertise">
-            <span>Visual identity</span>
-            <span>Web design</span>
-            <span>Development</span>
-            <span>Art direction</span>
-          </div>
-        </div>
-      </section>
+        <!-- Theme Toggle Button -->
+        <button class="btn-theme-toggle" aria-label="Toggle Theme Mode">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
 
-      <section class="contact" id="contact">
-        <div>
-          <p class="section-label">Have something good in mind?</p>
-          <h2>Let’s make it happen.</h2>
-        </div>
-        <a class="button" href="mailto:nainlakshay22@gmail.com">nainlakshay22@gmail.com <span aria-hidden="true">↗</span></a>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <span>© 2025 Lakshay Nain. Made with care.</span>
-      <div class="footer-links">
-        <a href="https://www.instagram.com/nain.lakshy?exln=MXdzazl0b2ZwZG5iZA==">Instagram ↗</a>
+        <!-- Mobile Drawer Toggle -->
+        <button class="btn-mobile-toggle" id="btn-mobile-toggle" aria-label="Toggle Navigation Drawer" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
-    </footer>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-nav-links">
+      <a href="#home">Home <span>01</span></a>
+      <a href="#about">About <span>02</span></a>
+      <a href="#work">Work <span>03</span></a>
+      <a href="#skills">Skills <span>04</span></a>
+      <a href="#services">Services <span>05</span></a>
+      <a href="#process">Process <span>06</span></a>
+      <a href="#journal">Journal <span>07</span></a>
+      <a href="#contact">Contact <span>08</span></a>
+    </div>
+    <div style="padding-top: 2rem; border-top: 1px solid var(--color-border); display: flex; flex-direction: column; gap: 0.8rem;">
+      <p style="font-size: 0.8rem; color: var(--color-text-muted);">Inquiries: nainlakshay22@gmail.com</p>
+      <a href="https://wa.me/917849995988" target="_blank" rel="noopener noreferrer" style="font-size: 0.85rem; font-weight: 600; color: var(--color-text-primary);">WhatsApp: +91 78499 95988 ↗</a>
+      <a href="https://www.instagram.com/lakshya.web/" target="_blank" rel="noopener noreferrer" style="font-size: 0.85rem; font-weight: 600; color: var(--color-text-primary);">Instagram: @lakshya.web ↗</a>
+      <div class="availability-pill" style="align-self: flex-start; margin-top: 0.4rem;">
+        <span class="dot"></span>
+        <span>Available for Projects</span>
+      </div>
+    </div>
   </div>
+
+  <main id="main-content">
+    <!-- ==========================================================================
+         PHASE 3 — CINEMATIC INTERACTIVE HERO
+         ========================================================================== -->
+    <section class="hero-section" id="home">
+      <div class="page-container hero-grid">
+        <div class="hero-headline-wrap">
+          <span class="section-label">Independent Freelance Web Developer</span>
+          <h1 class="display-title">
+            Beyond Ordinary.<br>
+            Built with <em>Intention.</em>
+          </h1>
+          <p class="lead-text" style="max-width: 520px; margin-top: 1.5rem;">
+            I design and develop modern digital experiences that help businesses stand out.
+          </p>
+          <div class="hero-actions-group">
+            <a href="#work" class="btn btn-primary">
+              Explore My Work
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              Let's Work Together
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 3D Interactive Three.js Scene with Graceful Fallback -->
+        <div class="hero-canvas-container" id="hero-3d-container">
+          <canvas id="hero-3d-canvas" aria-label="Interactive 3D Architectural Sphere"></canvas>
+          <div class="hero-3d-fallback" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PHASE 4 — MY PERSONAL PROFILE & PHOTO (ABOUT SECTION)
+         ========================================================================== -->
+    <section class="about-section" id="about" style="background-color: var(--color-bg-secondary); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+      <div class="page-container about-grid">
+        <!-- Exact Preserved Portrait Photo -->
+        <div class="portrait-wrapper">
+          <div class="portrait-frame">
+            <img src="public/images/lakshya-portrait.jpg" alt="Lakshya — Independent Web Developer" class="portrait-img" loading="lazy">
+          </div>
+          <div class="portrait-signature-badge">
+            <span>Crafting digital intention.</span>
+          </div>
+        </div>
+
+        <!-- Editorial About Copy -->
+        <div class="about-content">
+          <span class="section-label">01 / Personal Profile</span>
+          <h2 class="section-title" style="margin-bottom: 1.5rem;">Turning Ideas Into Digital Experiences.</h2>
+          <p class="lead-text" style="margin-bottom: 1.5rem; color: var(--color-text-primary);">
+            I'm Lakshya, an aspiring freelance web developer passionate about building modern, responsive and visually engaging websites.
+          </p>
+          <p style="margin-bottom: 1.5rem; line-height: 1.8;">
+            I enjoy transforming business ideas into meaningful digital experiences through thoughtful design, clean development and attention to detail.
+          </p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; border-top: 1px solid var(--color-border); padding-top: 1.8rem;">
+            <div>
+              <h3 style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-text-muted); margin-bottom: 0.5rem;">Philosophy</h3>
+              <p style="font-size: 0.88rem; line-height: 1.6;">Craft over clutter. Performance over noise. Every line of code and every pixel serves a clear purpose.</p>
+            </div>
+            <div>
+              <h3 style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-text-muted); margin-bottom: 0.5rem;">Current Focus</h3>
+              <p style="font-size: 0.88rem; line-height: 1.6;">Crafting high-converting business websites, interactive brand experiences, and digital storefronts for ambitious ventures.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PHASE 5 — ADVANCED PROJECT MANAGEMENT & SHOWCASE
+         ========================================================================== -->
+    <section class="projects-section" id="work">
+      <div class="page-container">
+        <div class="section-header">
+          <div class="section-header-left">
+            <span class="section-label">02 / Selected Projects</span>
+            <h2 class="section-title">Concept &amp; Web Showcases.</h2>
+            <p class="lead-text">
+              Thoughtfully engineered digital environments demonstrating responsive layouts, brand identity, and interactive web architecture.
+            </p>
+          </div>
+          <div class="concept-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            Transparently Labeled Concepts
+          </div>
+        </div>
+
+        <!-- Filter & Search Controls -->
+        <div class="projects-filter-bar">
+          <div class="filter-bar-top">
+            <div class="search-box-wrapper">
+              <span class="search-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              </span>
+              <input type="text" id="project-search-input" class="search-input" placeholder="Search by name, technology, or category...">
+            </div>
+
+            <div class="filter-sort-wrapper">
+              <label for="project-sort-select" style="font-size: 0.78rem; font-weight: 600; color: var(--color-text-muted);">Sort:</label>
+              <select id="project-sort-select" class="sort-select">
+                <option value="featured">Featured First</option>
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Category Tags Filter -->
+          <div class="category-tags-list">
+            <button class="category-filter-btn active" data-category="all">
+              All Projects <span class="count-badge">(2)</span>
+            </button>
+            <button class="category-filter-btn" data-category="cafe-restaurant">
+              Café &amp; Restaurant <span class="count-badge">(1)</span>
+            </button>
+            <button class="category-filter-btn" data-category="creative-concepts">
+              Creative Concepts <span class="count-badge">(1)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Dynamic Projects Grid -->
+        <div class="projects-grid" id="projects-list-container">
+          <!-- Populated dynamically via public/js/projects.js -->
+        </div>
+
+        <!-- Empty State (Hidden by default) -->
+        <div id="projects-empty-state" style="display: none; text-align: center; padding: 4rem 2rem; background-color: var(--color-bg-secondary); border: 1px dashed var(--color-border); border-radius: var(--radius-md);">
+          <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">No matching projects found</h4>
+          <p style="font-size: 0.88rem; color: var(--color-text-secondary); margin-bottom: 1.5rem;">Try modifying your keyword search or selected category filter.</p>
+          <button id="clear-filters-btn" class="btn btn-secondary btn-sm">Clear All Filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PHASE 6 — SKILLS & EXPERTISE
+         ========================================================================== -->
+    <section class="skills-section" id="skills" style="background-color: var(--color-bg-secondary); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+      <div class="page-container">
+        <div class="section-header">
+          <div class="section-header-left">
+            <span class="section-label">03 / Technical Stack</span>
+            <h2 class="section-title">Core Skills &amp; Standards.</h2>
+            <p class="lead-text">
+              Authentic proficiencies honed through direct project development, semantic engineering, and modern web standards. Zero fabricated percentages.
+            </p>
+          </div>
+        </div>
+
+        <div class="skills-grid">
+          <!-- HTML5 -->
+          <div class="skill-card">
+            <div class="skill-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <span class="skill-focus-tag">Structure &amp; Semantics</span>
+            <h3 class="skill-name">HTML5</h3>
+            <p class="skill-desc">Accessible landmark elements, clean document outlining, native form controls, and SEO-optimized markup.</p>
+          </div>
+
+          <!-- CSS3 -->
+          <div class="skill-card">
+            <div class="skill-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </div>
+            <span class="skill-focus-tag">Layout &amp; Aesthetics</span>
+            <h3 class="skill-name">CSS3</h3>
+            <p class="skill-desc">Modern CSS custom properties (variables), CSS Grid, Flexbox, clamp() fluid typography, and micro-animations.</p>
+          </div>
+
+          <!-- JavaScript -->
+          <div class="skill-card">
+            <div class="skill-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M16 8v8"/><path d="M12 16a4 4 0 0 1-4-4"/></svg>
+            </div>
+            <span class="skill-focus-tag">Interaction &amp; State</span>
+            <h3 class="skill-name">JavaScript</h3>
+            <p class="skill-desc">Modern ES6+ standards, event handling, asynchronous APIs, modular architecture, and dynamic DOM manipulation.</p>
+          </div>
+
+          <!-- Responsive Web Design -->
+          <div class="skill-card">
+            <div class="skill-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <span class="skill-focus-tag">Cross-Device Fidelity</span>
+            <h3 class="skill-name">Responsive Design</h3>
+            <p class="skill-desc">Mobile-first philosophy, fluid scaling, touch-friendly UI, and rigorous cross-device breakpoint auditing.</p>
+          </div>
+
+          <!-- UI/UX Design -->
+          <div class="skill-card">
+            <div class="skill-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83M16.62 12l-5.74 9.94"/></svg>
+            </div>
+            <span class="skill-focus-tag">Visual Hierarchy</span>
+            <h3 class="skill-name">UI/UX Design</h3>
+            <p class="skill-desc">Editorial typography, calculated whitespace, high contrast accessibility, and intuitive navigation patterns.</p>
+          </div>
+
+          <!-- Git & GitHub -->
+          <div class="skill-card">
+            <div class="skill-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><line x1="6" y1="9" x2="6" y2="21"/></svg>
+            </div>
+            <span class="skill-focus-tag">Version Control</span>
+            <h3 class="skill-name">Git &amp; GitHub</h3>
+            <p class="skill-desc">Source code versioning, structured branch workflows, atomic commit discipline, and remote repository synchronization.</p>
+          </div>
+
+          <!-- Vercel Deployment -->
+          <div class="skill-card">
+            <div class="skill-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 22 20 2 20 12 2"/></svg>
+            </div>
+            <span class="skill-focus-tag">Cloud &amp; Hosting</span>
+            <h3 class="skill-name">Vercel Deployment</h3>
+            <p class="skill-desc">Continuous deployment via Git triggers, global edge network distribution, HTTPS security, and custom domain configuration.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PHASE 7 — SERVICES
+         ========================================================================== -->
+    <section class="services-section" id="services">
+      <div class="page-container">
+        <div class="section-header">
+          <div class="section-header-left">
+            <span class="section-label">04 / Services</span>
+            <h2 class="section-title">Tailored Web Development.</h2>
+            <p class="lead-text">
+              High-touch digital craftsmanship tailored for independent brands, hospitality venues, and modern businesses looking to elevate their online standing.
+            </p>
+          </div>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 1 -->
+          <div class="service-card">
+            <div>
+              <span class="service-index">01</span>
+              <h3 class="service-title">Business Website Development</h3>
+              <p class="service-desc">Complete corporate and boutique digital presence built with intentional typography, high speed, and customer conversion architecture.</p>
+              <p class="service-deliverables-title">Deliverables</p>
+              <ul class="service-deliverables">
+                <li>Multi-page responsive architecture</li>
+                <li>Custom contact &amp; lead generation system</li>
+                <li>Search engine optimization (SEO) foundation</li>
+                <li>Vercel cloud deployment &amp; domain setup</li>
+              </ul>
+            </div>
+            <button class="btn btn-secondary btn-sm btn-inquire-service" data-service="Business Website Development">
+              Get a Quote ↗
+            </button>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="service-card">
+            <div>
+              <span class="service-index">02</span>
+              <h3 class="service-title">Café &amp; Restaurant Websites</h3>
+              <p class="service-desc">Atmospheric digital storefronts that mirror physical culinary charm, featuring digital seasonal menus and direct reservation hooks.</p>
+              <p class="service-deliverables-title">Deliverables</p>
+              <ul class="service-deliverables">
+                <li>Interactive digital menu showcase</li>
+                <li>Location, operating hours &amp; map integration</li>
+                <li>Mobile-first reservation / order actions</li>
+                <li>Artisanal visual storytelling &amp; photography cues</li>
+              </ul>
+            </div>
+            <button class="btn btn-secondary btn-sm btn-inquire-service" data-service="Café & Restaurant Websites">
+              Get a Quote ↗
+            </button>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="service-card">
+            <div>
+              <span class="service-index">03</span>
+              <h3 class="service-title">Landing Page Development</h3>
+              <p class="service-desc">Laser-focused single-page experiences built to capture interest, launch new products, or promote targeted promotional campaigns.</p>
+              <p class="service-deliverables-title">Deliverables</p>
+              <ul class="service-deliverables">
+                <li>Persuasive headline &amp; value hierarchy</li>
+                <li>Frictionless call-to-action flows</li>
+                <li>Sub-second loading speed benchmark</li>
+                <li>Cross-device conversion testing</li>
+              </ul>
+            </div>
+            <button class="btn btn-secondary btn-sm btn-inquire-service" data-service="Landing Page Development">
+              Get a Quote ↗
+            </button>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="service-card">
+            <div>
+              <span class="service-index">04</span>
+              <h3 class="service-title">Portfolio Websites</h3>
+              <p class="service-desc">Distinctive showcase platforms for creative professionals, architects, designers, and creators who need their work remembered.</p>
+              <p class="service-deliverables-title">Deliverables</p>
+              <ul class="service-deliverables">
+                <li>Editorial project grids &amp; case study modals</li>
+                <li>Interactive media &amp; responsive mockups</li>
+                <li>Light &amp; dark mode capability</li>
+                <li>Command palette or custom interaction cues</li>
+              </ul>
+            </div>
+            <button class="btn btn-secondary btn-sm btn-inquire-service" data-service="Portfolio Websites">
+              Get a Quote ↗
+            </button>
+          </div>
+
+          <!-- Service 5 -->
+          <div class="service-card">
+            <div>
+              <span class="service-index">05</span>
+              <h3 class="service-title">Small Business Websites</h3>
+              <p class="service-desc">Dependable, easy-to-maintain digital foundations that turn local neighborhood searches into paying clients.</p>
+              <p class="service-deliverables-title">Deliverables</p>
+              <ul class="service-deliverables">
+                <li>Core service showcase &amp; pricing breakdown</li>
+                <li>Direct WhatsApp &amp; phone click-to-call actions</li>
+                <li>Fast performance with zero ongoing bloat</li>
+                <li>Client handover &amp; basic maintenance guidance</li>
+              </ul>
+            </div>
+            <button class="btn btn-secondary btn-sm btn-inquire-service" data-service="Small Business Websites">
+              Get a Quote ↗
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         DEVELOPMENT PROCESS SECTION
+         ========================================================================== -->
+    <section class="process-section" id="process" style="background-color: var(--color-bg-secondary); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+      <div class="page-container">
+        <div class="section-header">
+          <div class="section-header-left">
+            <span class="section-label">05 / The Workflow</span>
+            <h2 class="section-title">Built with Intention.</h2>
+            <p class="lead-text">
+              A structured, transparent four-stage development cycle ensuring clarity, speed, and uncompromising quality from day one.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-timeline">
+          <div class="process-card">
+            <div class="process-step-num">01</div>
+            <h3 class="process-title">Discover &amp; Strategy</h3>
+            <p class="process-desc">We clarify your business goals, target audience expectations, and core brand aesthetic before writing any code.</p>
+          </div>
+
+          <div class="process-card">
+            <div class="process-step-num">02</div>
+            <h3 class="process-title">Editorial Design</h3>
+            <p class="process-desc">Translating your vision into typography scales, refined color palettes, and balanced whitespace layouts that command respect.</p>
+          </div>
+
+          <div class="process-card">
+            <div class="process-step-num">03</div>
+            <h3 class="process-title">Frontend Engineering</h3>
+            <p class="process-desc">Hand-crafting clean, semantic code with lightning-fast load times, responsive fluid units, and purposeful micro-interactions.</p>
+          </div>
+
+          <div class="process-card">
+            <div class="process-step-num">04</div>
+            <h3 class="process-title">QA &amp; Global Launch</h3>
+            <p class="process-desc">Comprehensive cross-device testing, accessibility audits, SEO meta validation, and frictionless deployment to Vercel.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PHASE 11 — JOURNAL & INSIGHTS SECTION
+         ========================================================================== -->
+    <section class="journal-section" id="journal">
+      <div class="page-container">
+        <div class="section-header">
+          <div class="section-header-left">
+            <span class="section-label">06 / Insights &amp; Reflections</span>
+            <h2 class="section-title">Developer Journal.</h2>
+            <p class="lead-text">
+              Perspectives on modern web craftsmanship, design psychology, and the discipline of building durable digital experiences.
+            </p>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+          <article style="background-color: var(--color-bg-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span class="tech-tag" style="margin-bottom: 1rem;">UI/UX Philosophy</span>
+              <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 0.8rem;">The Death of Generic Templates</h3>
+              <p style="font-size: 0.88rem; line-height: 1.7; color: var(--color-text-secondary);">
+                Why cookie-cutter website templates dilute brand trust, and how intentional typography and calculated whitespace re-establish brand authority.
+              </p>
+            </div>
+            <span style="font-size: 0.74rem; font-family: var(--font-mono); color: var(--color-text-muted); margin-top: 1.5rem;">Editorial Note</span>
+          </article>
+
+          <article style="background-color: var(--color-bg-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span class="tech-tag" style="margin-bottom: 1rem;">Frontend Performance</span>
+              <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 0.8rem;">The Power of Fluid Typography with clamp()</h3>
+              <p style="font-size: 0.88rem; line-height: 1.7; color: var(--color-text-secondary);">
+                Moving away from rigid media queries toward mathematical fluid scaling that makes responsive design effortlessly natural across all screen sizes.
+              </p>
+            </div>
+            <span style="font-size: 0.74rem; font-family: var(--font-mono); color: var(--color-text-muted); margin-top: 1.5rem;">Development Note</span>
+          </article>
+
+          <article style="background-color: var(--color-bg-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span class="tech-tag" style="margin-bottom: 1rem;">Brand Strategy</span>
+              <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 0.8rem;">Why High Contrast is the True Essence of Luxury</h3>
+              <p style="font-size: 0.88rem; line-height: 1.7; color: var(--color-text-secondary);">
+                Luxury is not low-contrast grey text or decorative clutter; true digital prestige comes from effortless legibility, deep charcoal inks, and crisp ivory backdrops.
+              </p>
+            </div>
+            <span style="font-size: 0.74rem; font-family: var(--font-mono); color: var(--color-text-muted); margin-top: 1.5rem;">Design Note</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PHASE 8 / 10 — CONTACT & PROJECT INQUIRY SYSTEM
+         ========================================================================== -->
+    <section class="contact-section" id="contact" style="background-color: var(--color-bg-secondary); border-top: 1px solid var(--color-border);">
+      <div class="page-container">
+        <div class="section-header">
+          <div class="section-header-left">
+            <span class="section-label">07 / Collaboration</span>
+            <h2 class="section-title">Let's Work Together.</h2>
+            <p class="lead-text">
+              Have an upcoming project, a hospitality concept, or a brand experience in mind? Send an inquiry below to discuss timeline and scope.
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-container">
+          <!-- Left Column: Direct Inquiries & Credentials -->
+          <div class="contact-info-col">
+            <h3 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 1rem;">Direct Collaboration</h3>
+            <p style="font-size: 0.94rem; line-height: 1.7; margin-bottom: 2rem;">
+              I collaborate with founders, local business owners, and creative agencies worldwide. All inquiries receive a direct response within 24 business hours.
+            </p>
+
+            <div class="contact-direct-links">
+              <!-- Email Card -->
+              <a href="mailto:nainlakshay22@gmail.com" class="contact-method-card">
+                <div class="contact-method-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <span style="font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-muted); display: block;">Direct Email</span>
+                  <span style="font-weight: 600; color: var(--color-text-primary);">nainlakshay22@gmail.com ↗</span>
+                </div>
+              </a>
+
+              <!-- WhatsApp & Direct Call Action -->
+              <a href="https://wa.me/917849995988?text=Hi%20Lakshya,%20I%20would%20like%20to%20discuss%20a%20web%20development%20project." id="btn-whatsapp-contact" data-phone="917849995988" target="_blank" rel="noopener noreferrer" class="contact-method-card">
+                <div class="contact-method-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                </div>
+                <div>
+                  <span style="font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-muted); display: block;">WhatsApp &amp; Direct Phone</span>
+                  <span style="font-weight: 600; color: var(--color-text-primary);">+91 78499 95988 ↗</span>
+                </div>
+              </a>
+
+              <!-- Instagram Card -->
+              <a href="https://www.instagram.com/lakshya.web/" target="_blank" rel="noopener noreferrer" class="contact-method-card">
+                <div class="contact-method-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </div>
+                <div>
+                  <span style="font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-muted); display: block;">Instagram Studio</span>
+                  <span style="font-weight: 600; color: var(--color-text-primary);">@lakshya.web ↗</span>
+                </div>
+              </a>
+
+              <!-- Verified Resume / Credentials Action -->
+              <a href="#" id="btn-download-resume" class="contact-method-card">
+                <div class="contact-method-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </div>
+                <div>
+                  <span style="font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-muted); display: block;">Verified Developer Profile</span>
+                  <span style="font-weight: 600; color: var(--color-text-primary);">View Curriculum Vitae &amp; Credentials ↗</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Form -->
+          <div class="contact-form-col">
+            <form id="contact-form" class="contact-form" data-endpoint="NOT_CONFIGURED" novalidate>
+              <!-- Anti-Spam Honeypot Field -->
+              <div class="honeypot-field">
+                <label for="company_website_url">Company URL (Leave blank)</label>
+                <input type="text" id="company_website_url" name="company_website_url" tabindex="-1" autocomplete="off">
+              </div>
+
+              <!-- Full Name -->
+              <div class="form-group">
+                <label for="contact-name" class="form-label">Full Name *</label>
+                <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. Eleanor Vance" required>
+                <span class="form-error">Please enter your full name.</span>
+              </div>
+
+              <!-- Email Address -->
+              <div class="form-group">
+                <label for="contact-email" class="form-label">Email Address *</label>
+                <input type="email" id="contact-email" name="email" class="form-input" placeholder="e.g. eleanor@vance-studio.com" required>
+                <span class="form-error">Please enter a valid email address.</span>
+              </div>
+
+              <!-- Business Name (Optional) -->
+              <div class="form-group">
+                <label for="contact-business" class="form-label">Business or Venture (Optional)</label>
+                <input type="text" id="contact-business" name="business" class="form-input" placeholder="e.g. Vance Architectural Collective">
+              </div>
+
+              <!-- Service Required -->
+              <div class="form-group">
+                <label for="contact-service" class="form-label">Service Required *</label>
+                <select id="contact-service" name="service" class="form-select" required>
+                  <option value="Business Website Development">Business Website Development</option>
+                  <option value="Café & Restaurant Websites">Café &amp; Restaurant Websites</option>
+                  <option value="Landing Page Development">Landing Page Development</option>
+                  <option value="Portfolio Websites">Portfolio Websites</option>
+                  <option value="Small Business Websites">Small Business Websites</option>
+                  <option value="General Consultation / Other">General Consultation / Other</option>
+                </select>
+              </div>
+
+              <!-- Project Budget Tier -->
+              <div class="form-group">
+                <label for="contact-budget" class="form-label">Estimated Budget (Optional)</label>
+                <select id="contact-budget" name="budget" class="form-select">
+                  <option value="Flexible / Discussion">Flexible / Open to Discussion</option>
+                  <option value="$500 - $1,500">$500 – $1,500</option>
+                  <option value="$1,500 - $3,000">$1,500 – $3,000</option>
+                  <option value="$3,000+">$3,000+</option>
+                </select>
+              </div>
+
+              <!-- Message -->
+              <div class="form-group">
+                <label for="contact-message" class="form-label">Project Details &amp; Objectives *</label>
+                <textarea id="contact-message" name="message" class="form-textarea" placeholder="Tell me about your brand, goals, target launch timeline, or key challenges..." required></textarea>
+                <span class="form-error">Please share a brief message (minimum 10 characters).</span>
+              </div>
+
+              <!-- Real Status / Feedback Alert -->
+              <div id="form-status-alert" class="form-status-alert"></div>
+
+              <button type="submit" id="contact-submit-btn" class="btn btn-primary" style="align-self: flex-start; margin-top: 0.5rem;">
+                Submit Project Inquiry
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="page-container">
+      <div class="footer-top">
+        <div>
+          <a href="#home" class="brand-wordmark" style="margin-bottom: 0.8rem;">
+            <span class="brand-name" style="font-size: 1.35rem;">LAKSHYA<sup>®</sup></span>
+            <span class="brand-role">Independent Web Developer</span>
+          </a>
+          <p style="max-width: 380px; font-size: 0.88rem; line-height: 1.7; color: var(--color-text-secondary);">
+            Noir Editorial Studio — Light Luxury Cinematic Edition. Built with intention, precision typography, and zero clutter.
+          </p>
+        </div>
+
+        <div>
+          <p style="font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-text-muted); margin-bottom: 1rem;">Direct Navigation</p>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.88rem;">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#work">Selected Projects</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Inquiries</a>
+          </div>
+        </div>
+
+        <div>
+          <p style="font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-text-muted); margin-bottom: 1rem;">Digital Channels</p>
+          <div style="display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem;">
+            <a href="mailto:nainlakshay22@gmail.com">nainlakshay22@gmail.com ↗</a>
+            <a href="https://wa.me/917849995988?text=Hi%20Lakshya,%20I%20would%20like%20to%20discuss%20a%20web%20development%20project." target="_blank" rel="noopener noreferrer">WhatsApp: +91 78499 95988 ↗</a>
+            <a href="https://www.instagram.com/lakshya.web/" target="_blank" rel="noopener noreferrer">Instagram: @lakshya.web ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 LAKSHYA® (Lakshya Nain). All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODALS & OVERLAYS
+       ========================================================================== -->
+
+  <!-- Dedicated Case Study Modal -->
+  <div class="modal-backdrop" id="case-study-modal-backdrop" aria-modal="true" role="dialog" aria-label="Detailed Project Case Study">
+    <div class="case-study-modal">
+      <div class="modal-header">
+        <div>
+          <span style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-muted);">Dedicated Case Study</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.35rem;">Architectural Breakdown</h3>
+        </div>
+        <button class="modal-close-btn" id="case-study-modal-close" aria-label="Close Case Study Modal">✕</button>
+      </div>
+      <div class="modal-content-body" id="case-study-modal-content">
+        <!-- Rendered dynamically via public/js/projects.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Command Palette Modal (Ctrl+K / Cmd+K) -->
+  <div class="cmd-palette-backdrop" id="cmd-palette-backdrop" aria-modal="true" role="dialog" aria-label="Command Menu">
+    <div class="cmd-palette-box">
+      <div class="cmd-palette-input-wrap">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-accent-gold);"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="cmd-palette-input" class="cmd-palette-input" placeholder="Type a destination or command..." autocomplete="off">
+      </div>
+      <ul class="cmd-palette-list" id="cmd-palette-list">
+        <!-- Rendered dynamically via public/js/command-palette.js -->
+      </ul>
+      <div class="cmd-palette-footer">
+        <span>Navigation: <kbd style="font-family: var(--font-mono);">↑</kbd> <kbd style="font-family: var(--font-mono);">↓</kbd> to cycle</span>
+        <span>Select: <kbd style="font-family: var(--font-mono);">Enter</kbd> · Close: <kbd style="font-family: var(--font-mono);">Esc</kbd></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button class="btn-back-to-top" aria-label="Scroll back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Vendor Scripts (Local offline bundles) -->
+  <script src="public/vendor/three.min.js"></script>
+  <script src="public/vendor/gsap.min.js"></script>
+  <script src="public/vendor/ScrollTrigger.min.js"></script>
+
+  <!-- Master Application Script (ES Module) -->
+  <script type="module" src="public/js/app.js"></script>
 </body>
 </html>
