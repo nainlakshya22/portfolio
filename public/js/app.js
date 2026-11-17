@@ -6,6 +6,7 @@
 import { initTheme } from './theme.js';
 import { initHeroScene } from './three-scene.js';
 import { initProjects, closeCaseStudyModal } from './projects.js';
+import { initCommandPalette } from './command-palette.js';
 import { initContact } from './contact.js';
 import { initAnimations } from './animations.js';
 
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { name: 'Theme', fn: initTheme },
     { name: 'Projects', fn: initProjects },
     { name: 'Hero3D', fn: initHeroScene },
+    { name: 'CommandPalette', fn: initCommandPalette },
     { name: 'Contact', fn: initContact },
     { name: 'Animations', fn: initAnimations },
     { name: 'MobileDrawer', fn: initMobileDrawer },

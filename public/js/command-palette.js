@@ -54,7 +54,6 @@ export function initCommandPalette() {
     list.innerHTML = filteredCommands.map((cmd, idx) => `
       <li class="cmd-palette-item ${idx === selectedIndex ? 'active' : ''}" data-idx="${idx}">
         <span>${cmd.label}</span>
-        <kbd>${cmd.shortcut}</kbd>
       </li>
     `).join('');
 
@@ -106,6 +105,11 @@ export function initCommandPalette() {
 
   if (triggerBtn) {
     triggerBtn.addEventListener('click', openPalette);
+  }
+
+  const closeBtn = document.getElementById('btn-close-cmd-palette');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closePalette);
   }
 
   // Backdrop click closes palette
