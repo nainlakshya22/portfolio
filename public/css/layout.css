@@ -109,35 +109,34 @@
   gap: 0.9rem;
 }
 
-/* Command Palette trigger button */
+/* Menu button */
+.btn-header-menu,
 .btn-cmd-palette {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
   background-color: var(--color-bg-secondary);
   border: 1px solid var(--color-border);
-  padding: 0.45rem 0.85rem;
+  padding: 0.45rem 1.15rem;
   border-radius: var(--radius-pill);
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--color-text-secondary);
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
+.btn-header-menu:hover,
 .btn-cmd-palette:hover {
   background-color: var(--color-bg-surface);
   border-color: var(--color-accent-gold);
   color: var(--color-text-primary);
 }
 
+.btn-header-menu kbd,
 .btn-cmd-palette kbd {
-  background-color: var(--color-bg-primary);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xs);
-  padding: 0.1rem 0.35rem;
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
+  display: none !important;
+  visibility: hidden !important;
 }
 
 /* Theme Toggle Button */
