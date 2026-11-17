@@ -90,12 +90,6 @@
           <span>Available for Projects</span>
         </div>
 
-        <!-- Command Palette Trigger -->
-        <button class="btn-cmd-palette" id="btn-open-cmd" aria-label="Open Command Menu (Ctrl+K)">
-          <span>Menu</span>
-          <kbd>Ctrl+K</kbd>
-        </button>
-
         <!-- Theme Toggle Button -->
         <button class="btn-theme-toggle" aria-label="Toggle Theme Mode">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -777,23 +771,6 @@
       </div>
       <div class="modal-content-body" id="case-study-modal-content">
         <!-- Rendered dynamically via public/js/projects.js -->
-      </div>
-    </div>
-  </div>
-
-  <!-- Command Palette Modal (Ctrl+K / Cmd+K) -->
-  <div class="cmd-palette-backdrop" id="cmd-palette-backdrop" aria-modal="true" role="dialog" aria-label="Command Menu">
-    <div class="cmd-palette-box">
-      <div class="cmd-palette-input-wrap">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-accent-gold);"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <input type="text" id="cmd-palette-input" class="cmd-palette-input" placeholder="Type a destination or command..." autocomplete="off">
-      </div>
-      <ul class="cmd-palette-list" id="cmd-palette-list">
-        <!-- Rendered dynamically via public/js/command-palette.js -->
-      </ul>
-      <div class="cmd-palette-footer">
-        <span>Navigation: <kbd style="font-family: var(--font-mono);">↑</kbd> <kbd style="font-family: var(--font-mono);">↓</kbd> to cycle</span>
-        <span>Select: <kbd style="font-family: var(--font-mono);">Enter</kbd> · Close: <kbd style="font-family: var(--font-mono);">Esc</kbd></span>
       </div>
     </div>
   </div>
